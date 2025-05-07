@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Martian+Mono:wght@100..800&display=swap');
+
+/* Hide page scrollbar */
+html {
+  scrollbar-width: none; /* Firefox */
+}
+
+body {
+  margin: 0;
+  background-color: #1e1e1e;
+  font-family: 'JetBrains Mono', monospace;
+  color: #cccccc;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  -ms-overflow-style: none;  /* IE and Edge (older versions) */
+}
+
+/* Hide page scrollbar for Webkit browsers */
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge, Opera */
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.App {
+  padding: 25px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  text-align: left;
+  width: 100%; /* Ensures .App takes full width of #root's content area */
+  box-sizing: border-box; /* Ensures padding is within the 100% width */
+}
+
+h1 {
+  font-family: 'Martian Mono', monospace;
+  color: #569cd6;
+  margin-bottom: 20px;
+  font-size: 2em;
+  border-bottom: 1px solid #3e3e3e;
+  padding-bottom: 10px;
+}
+
+.controls-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 20px;
+}
+
+.search-bar {
+  flex-grow: 1;
+  padding: 10px 14px;
+  border: 1px solid #3e3e3e;
+  border-radius: 4px;
+  background-color: #333333;
+  color: #cccccc;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.search-bar::placeholder {
+  color: #777;
+}
+.search-bar:focus {
+  outline: none;
+  border-color: #007acc;
+  box-shadow: 0 0 0 2px rgba(0, 122, 204, 0.3);
+}
+
+.add-new-button {
+  padding: 10px 18px;
+  background-color: #608b4e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+.add-new-button:hover {
+  background-color: #4b793a;
+}
+.add-new-button i {
+  font-size: 1em;
+}
+
+.student-list {
+  background-color: #2d2d30;
+  padding: 20px 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  overflow-x: auto; /* Keep this if you want horizontal scrolling for the table */
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Takes full width of .App's content area */
+  box-sizing: border-box; /* Padding included in width */
+}
+
+.no-students-message {
+  color: #888888;
+  font-style: italic;
+  text-align: center;
+  padding: 20px 0;
+  margin: auto; /* Centers this block within .student-list */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    table-layout: fixed;
+}
+
+th, td {
+    padding: 14px 12px;
+    text-align: left;
+    border-bottom: 1px solid #3e3e3e;
+    color: #cccccc;
+    vertical-align: middle;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+th.col-name    { width: 20%; }
+th.col-dob     { width: 10%; }
+th.col-phone   { width: 15%; }
+th.col-email   { width: 25%; }
+th.col-subject { width: 15%; }
+th.col-cgpa    { width: 5%; min-width: 60px; }
+th.col-actions { width: 100px; }
+
+
+th {
+    background-color: #3c3c3c;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.95em;
+}
+
+tr:hover {
+    background-color: #3a3a3a;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"] {
+  padding: 10px;
+  border: 1px solid #3e3e3e;
+  border-radius: 4px;
+  background-color: #333333;
+  color: #cccccc;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.95rem;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus {
+  outline: none;
+  border-color: #007acc;
+  box-shadow: 0 0 0 2px rgba(0, 122, 204, 0.3);
+}
+
+td button {
+    margin-right: 8px;
+}
+
+td.col-actions {
+    white-space: nowrap;
+}
+
+.icon-button {
+    padding: 8px;
+    min-width: 36px;
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.icon-button i {
+    font-size: 1.1em;
+    color: white;
+}
+
+td button:last-child {
+    margin-right: 0;
+}
+
+.edit-button {
+    background-color: #608b4e;
+}
+.edit-button:hover {
+    background-color: #4b793a;
+}
+
+.delete-button {
+    background-color: #f44747;
+}
+.delete-button:hover {
+    background-color: #d62828;
+}
+
+strong {
+    color: #d7ba7d;
+}
